@@ -7,7 +7,7 @@ let candidateName = '';
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
-let candidateAnswer;
+let candidateAnswer = "";
 let questions;
 let correctAnswers;
 let candidateAnswers;
@@ -15,13 +15,13 @@ let candidateAnswers;
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-  let candidateName = input.question("Enter your name: ");
+
 
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-let candidateAnswer = input.question(question);
+candidateAnswer = input.question(question);
 
 }
 
@@ -43,7 +43,10 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Ask for candidate's name //
-  console.log("Welcome, " + candidateName );
+    let candidateName = input.question("Enter your name: ");
+  console.log(`Welcome ${candidateName}`);
+
+  // Somewhat confused, when I put line 46 under 1.1b, it returns my welcome without candidateName //
   
   askQuestion();
   gradeQuiz(this.candidateAnswers);
