@@ -38,12 +38,12 @@ function gradeQuiz(candidateAnswers) {
     console.log("Question 1 was answered incorrectly.");
   }*/
   console.log()
-  let grade = 0;
+  let testScore = 0;
 
   for (let j = 0; j < candidateAnswers.length; j ++){
     console.log(`Your answer for question ${j + 1} was ${candidateAnswers[j]} and the correct answer was ${correctAnswers[j]}.\n`)
     if (candidateAnswers[j].toLowerCase() == correctAnswers[j].toLowerCase()){
-      grade = grade + 1
+      testScore = testScore + 1
     }
   }
 
@@ -53,11 +53,11 @@ function gradeQuiz(candidateAnswers) {
       grade = grade + 1
     }
   }*/
-  let testScore = grade / questions.length * 100
+  let grade = testScore / questions.length * 100
 
-  console.log(`Overall Grade: ${testScore}%\nYou correctly answered ${grade} out of ${questions.length} questions`)
+  console.log(`Overall Grade: ${grade}%\nYou correctly answered ${testScore} out of ${questions.length} questions`)
   
-  if (grade >= 4){
+  if (testScore >= 4){
     console.log('STATUS: Passed')
   } else {
     console.log('STATUS: Failed')
