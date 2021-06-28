@@ -35,12 +35,27 @@ function gradeQuiz(candidateAnswers) {
   } else {
     console.log("Question 1 was answered incorrectly.");
   }*/
+  console.log()
   for (j = 0; j < candidateAnswers.length; j ++){
-    console.log(`Your answer was ${candidateAnswers[j]} and the correct answer was ${correctAnswers[j]}.`)
+    console.log(`Your answer for question ${j + 1} was ${candidateAnswers[j]} and the correct answer was ${correctAnswers[j]}.\n`)
   }
 
-  let grade;
+  let grade = 0;
+
+  for (let i = 0; i < candidateAnswers.length; i ++){
+    if (candidateAnswers[i].toLowerCase() == correctAnswers[i].toLowerCase()){
+      grade = grade + 1
+    }
+  }
+  let testScore = grade / questions.length * 100
+
+  console.log(`Overall Grade: ${testScore}%\nYou correctly answered ${grade} out of ${questions.length} questions`)
   
+  if (grade >= 4){
+    console.log('STATUS: Passed')
+  } else {
+    console.log('STATUS: Failed')
+  }
 
   return grade;
 }
@@ -51,7 +66,7 @@ function runProgram() {
     let candidateName = input.question("Enter your name: ");
   console.log(`Welcome ${candidateName}`);
 
-  // Somewhat confused, when I put line 46 under 1.1b, it returns my welcome without candidateName //
+  // Somewhat confused, when I put the user input under 1.1b, it returns my welcome without candidateName //
   
   askQuestion();
   gradeQuiz(this.candidateAnswers);
