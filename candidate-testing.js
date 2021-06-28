@@ -15,8 +15,8 @@ let candidateAnswers = [];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-    let candidateName = input.question("Enter your name: ");
-  console.log(`Welcome ${candidateName}`);
+  candidateName = input.question("Enter your name: ");
+  console.log(`Welcome, ${candidateName}`);
 
 
 }
@@ -38,17 +38,21 @@ function gradeQuiz(candidateAnswers) {
     console.log("Question 1 was answered incorrectly.");
   }*/
   console.log()
-  for (j = 0; j < candidateAnswers.length; j ++){
-    console.log(`Your answer for question ${j + 1} was ${candidateAnswers[j]} and the correct answer was ${correctAnswers[j]}.\n`)
-  }
-
   let grade = 0;
 
-  for (let i = 0; i < candidateAnswers.length; i ++){
-    if (candidateAnswers[i].toLowerCase() == correctAnswers[i].toLowerCase()){
+  for (let j = 0; j < candidateAnswers.length; j ++){
+    console.log(`Your answer for question ${j + 1} was ${candidateAnswers[j]} and the correct answer was ${correctAnswers[j]}.\n`)
+    if (candidateAnswers[j].toLowerCase() == correctAnswers[j].toLowerCase()){
       grade = grade + 1
     }
   }
+
+
+/*  for (let i = 0; i < candidateAnswers.length; i ++){
+    if (candidateAnswers[i].toLowerCase() == correctAnswers[i].toLowerCase()){
+      grade = grade + 1
+    }
+  }*/
   let testScore = grade / questions.length * 100
 
   console.log(`Overall Grade: ${testScore}%\nYou correctly answered ${grade} out of ${questions.length} questions`)
